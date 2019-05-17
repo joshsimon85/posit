@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params['post_id'])
     @comment = @post.comments.build(comment_params)
-    binding.pry
     @comment.creator = current_user
 
     if @comment.save
@@ -14,6 +13,18 @@ class CommentsController < ApplicationController
       @post = Post.find(params['post_id']) #Added in to make incorrect comment not show
       render 'posts/show'
     end
+  end
+
+  def vote
+    comment = Comment.find(params[:id])
+    vote = Vote.create(voteable: comment, creator: current_user, vote: params[:vote])
+
+    if vote.valid?
+      flash[:notice] = 'Your vote was counted'
+    else
+      flash[:error] = 'You can only vote on a comment once.'
+    end 
+    redirect_to :back
   end
 
   private
