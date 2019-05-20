@@ -10,7 +10,7 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'json' '=1.8.0'
+#gem 'json' '=1.8.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
