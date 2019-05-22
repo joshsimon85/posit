@@ -19,9 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-
-  end
+  def show; end
 
   def edit; end
 
@@ -34,6 +32,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
 
   def require_same_user
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by slug: params[:id]
   end
 
   def user_params
