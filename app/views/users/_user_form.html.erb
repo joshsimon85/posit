@@ -10,6 +10,10 @@
       <%= f.password_field :password %>
     </div>
     <div class="control_group">
+      <%= f.label :phone, 'Phone Number <small>(numbers only)</small>'.html_safe %>
+      <%= f.text_field :phone, maxlength: 9 %>
+    </div>
+    <div class="control_group">
       <%= f.label :time_zone %>
       <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: Time.zone.name %>
     </div>

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      session[:notice] = 'Your are registered' #flash notice is not showing up
+      session[:notice] = 'Your are registered' 
       redirect_to root_path
     else
       render :new
@@ -47,6 +47,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :password, :time_zone)
+    params.require(:user).permit(:username, :password, :phone, :time_zone)
   end
 end
